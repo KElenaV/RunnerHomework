@@ -7,7 +7,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _maxPosition;
     [SerializeField] private float _minPosition;
 
-    [SerializeField] private Vector3 _targetPosition;
+    private Vector3 _targetPosition;
 
     private void Start()
     {
