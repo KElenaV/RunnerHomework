@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : Pool
@@ -6,6 +7,7 @@ public class Spawner : Pool
     [SerializeField] private Transform[] _enemyPrefabs;
     [SerializeField] private float _delay;
     [SerializeField] private Transform[] _points;
+    [SerializeField] private int _maxCountInRaw;
 
     private WaitForSeconds _waitForSeconds;
 
@@ -15,21 +17,37 @@ public class Spawner : Pool
 
         Initialize(_enemyPrefabs);
 
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnEnemiesRaw());
     }
 
-    private IEnumerator SpawnEnemy()
+    private IEnumerator SpawnEnemiesRaw()
     {
         while (true)
         {
-            int point = Random.Range(0, _points.Length);
+            int count = Random.Range(0, _maxCountInRaw);
+            List<Transform> points = new List<Transform>();
 
-            if(TryGetObject(out Transform newEnemy))
+            foreach (var point in _points)
             {
-                ActivateEnemy(newEnemy, _points[point]);
+                points.Add(point);
+            }
+
+            for (int i = 0; i <= count; i++)
+            {
+                TryGetEnemy(points);
             }
 
             yield return _waitForSeconds;
+        }
+    }
+
+    private void TryGetEnemy(List<Transform> points)
+    {
+        if (TryGetObject(out Transform newEnemy))
+        {
+            int nextPoint = Random.Range(0, points.Count);
+            ActivateEnemy(newEnemy, points[nextPoint]);
+            points.RemoveAt(nextPoint);
         }
     }
 

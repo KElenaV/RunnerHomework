@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pool: []
-  _capacity: 15
+  _capacity: 20
   _container: {fileID: 1968740992}
   _enemyPrefabs:
   - {fileID: 2142791719164926293, guid: c93b29c82163b11408c38327e5f13fbe, type: 3}
@@ -764,6 +764,7 @@ MonoBehaviour:
   - {fileID: 1141787660}
   - {fileID: 2065471011}
   - {fileID: 1968505164}
+  _maxCountInRaw: 3
 --- !u!4 &1601193708
 Transform:
   m_ObjectHideFlags: 0
