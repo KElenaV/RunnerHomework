@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : Pool
+public class EnemySpawner : Pool
 {
     [SerializeField] private Transform[] _enemyPrefabs;
     [SerializeField] private float _delay;
