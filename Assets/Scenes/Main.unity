@@ -614,8 +614,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 251.84277, y: 51.56201}
-  m_SizeDelta: {x: 503.6857, y: 103.1241}
+  m_AnchoredPosition: {x: 251.84277, y: 44.433136}
+  m_SizeDelta: {x: 503.6857, y: 101.828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546418720
 MonoBehaviour:
@@ -702,9 +702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aabe94ad8c04844b984af4922eff599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collision: {fileID: 8300000, guid: def7e84e0eccfc648895b7fd1170d866, type: 3}
-  _bonus: {fileID: 8300000, guid: e8c5591d51e40e34b89b80dacd3af5c6, type: 3}
   _player: {fileID: 887635846}
+  _bonus: {fileID: 8300000, guid: e8c5591d51e40e34b89b80dacd3af5c6, type: 3}
+  _collision: {fileID: 8300000, guid: def7e84e0eccfc648895b7fd1170d866, type: 3}
 --- !u!82 &585548254
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1452,7 +1452,6 @@ MonoBehaviour:
   _minXPosition: -7
   _maxXPosition: 7
   _delay: 15
-  _bonuses: []
 --- !u!4 &1160175696
 Transform:
   m_ObjectHideFlags: 0
@@ -2217,17 +2216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b034347c49f826842b9cacf0493fab4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: []
   _capacity: 20
   _container: {fileID: 1968740992}
-  _enemyPrefabs:
-  - {fileID: 2142791719164926293, guid: c93b29c82163b11408c38327e5f13fbe, type: 3}
-  - {fileID: 2045861527809214853, guid: 51b97178122a82744b093384951fc16a, type: 3}
-  - {fileID: 2205288788024861079, guid: 9242daabe537572499ae45c49037a66a, type: 3}
-  - {fileID: 3311788355132455254, guid: 279a233e6d5576f4196c28b6d5bb5a30, type: 3}
-  - {fileID: 3636592943492213889, guid: 3c47428bc1ae05444b4ed0acdbaff38a, type: 3}
-  - {fileID: 3879102880394167931, guid: 838483c6d0ebe0c4f806f7deed33b6da, type: 3}
+  _pool: []
   _delay: 1
+  _maxCountInRaw: 4
   _points:
   - {fileID: 1537487713}
   - {fileID: 1142296647}
@@ -2236,7 +2229,13 @@ MonoBehaviour:
   - {fileID: 2065471011}
   - {fileID: 1968505164}
   - {fileID: 1696589753}
-  _maxCountInRaw: 4
+  _enemyPrefabs:
+  - {fileID: 2142791719164926293, guid: c93b29c82163b11408c38327e5f13fbe, type: 3}
+  - {fileID: 2045861527809214853, guid: 51b97178122a82744b093384951fc16a, type: 3}
+  - {fileID: 2205288788024861079, guid: 9242daabe537572499ae45c49037a66a, type: 3}
+  - {fileID: 3311788355132455254, guid: 279a233e6d5576f4196c28b6d5bb5a30, type: 3}
+  - {fileID: 3636592943492213889, guid: 3c47428bc1ae05444b4ed0acdbaff38a, type: 3}
+  - {fileID: 3879102880394167931, guid: 838483c6d0ebe0c4f806f7deed33b6da, type: 3}
 --- !u!4 &1601193708
 Transform:
   m_ObjectHideFlags: 0

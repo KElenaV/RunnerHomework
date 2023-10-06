@@ -1,18 +1,19 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerAction))]
 public class PlayerInput : MonoBehaviour
 {
-    private PlayerMover _mover;
+    private PlayerAction _mover;
+    private PlayerJumper _jumper;
 
     private void Awake()
     {
-        _mover = GetComponent<PlayerMover>();
+        _mover = GetComponent<PlayerAction>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W)) 
+        if (Input.GetKeyDown(KeyCode.W))
             _mover.TryJumpUp();
 
         if (Input.GetKeyDown(KeyCode.S))

@@ -2,12 +2,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerAction))]
 public class PlayerAnimation : MonoBehaviour
 {
     private Player _player;
     private Animator _animator;
-    private PlayerMover _mover;
+    private PlayerAction _mover;
 
     private readonly int _isDying = Animator.StringToHash("IsDying");
     private readonly int _jump = Animator.StringToHash("Jump");
@@ -16,7 +16,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         _player = GetComponent<Player>();
         _animator = GetComponent<Animator>();
-        _mover = GetComponent<PlayerMover>();
+        _mover = GetComponent<PlayerAction>();
     }
 
     private void OnEnable()
@@ -35,7 +35,6 @@ public class PlayerAnimation : MonoBehaviour
     private void OnDying()
     {
         _animator.SetTrigger(_isDying);
-
     }
 
     private void OnJump()
