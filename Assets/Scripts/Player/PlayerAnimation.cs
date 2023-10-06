@@ -9,6 +9,9 @@ public class PlayerAnimation : MonoBehaviour
     private Animator _animator;
     private PlayerMover _mover;
 
+    private readonly int _isDying = Animator.StringToHash("IsDying");
+    private readonly int _jump = Animator.StringToHash("Jump");
+
     private void Awake()
     {
         _player = GetComponent<Player>();
@@ -31,12 +34,12 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnDying()
     {
-        _animator.SetTrigger("IsDying");
+        _animator.SetTrigger(_isDying);
 
     }
 
     private void OnJump()
     {
-        _animator.SetTrigger("Jump");
+        _animator.SetTrigger(_jump);
     }
 }

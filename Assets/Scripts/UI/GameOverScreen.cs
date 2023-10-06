@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,9 +11,13 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private Button _exit;
 
     private CanvasGroup _canvasGroup;
+    private WaitForSeconds _waitForSeconds;
+    private float _restartDelay = 0.3f;
 
     private void Awake()
     {
+        _waitForSeconds = new WaitForSeconds(_restartDelay);
+
         _canvasGroup = GetComponent<CanvasGroup>();
         _canvasGroup.alpha = 0;
     }
@@ -39,8 +44,14 @@ public class GameOverScreen : MonoBehaviour
 
     private void OnRestartButtonClick()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(Restart());
+    }
+
+    private IEnumerator Restart()
+    {
         Time.timeScale = 1;
+        yield return _waitForSeconds;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnExitButtonClick()

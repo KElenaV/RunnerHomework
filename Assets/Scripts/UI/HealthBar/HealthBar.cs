@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour
         _player.HealthChanged -= OnHealthChanged;
     }
 
-    private void OnHealthChanged(int health)
+    private void OnHealthChanged(int health, LifeChange action)
     {
         int difference = health - _lives.Count;
 

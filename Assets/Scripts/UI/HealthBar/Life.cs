@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,9 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class Life : MonoBehaviour
 {
-    private float _fillDuration;
-
     private Image _image;
+    private float _fillDuration;
 
     private void Awake()
     {
@@ -26,8 +24,6 @@ public class Life : MonoBehaviour
     {
         StartCoroutine(Filling(0, 1, ToFill));
     }
-
-    
 
     public void Empty()
     {

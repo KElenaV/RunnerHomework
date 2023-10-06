@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : Pool
 {
-    [SerializeField] private Transform[] _enemyPrefabs;
     [SerializeField] private float _delay;
-    [SerializeField] private Transform[] _points;
     [SerializeField] private int _maxCountInRaw;
+    [SerializeField] private Transform[] _points;
+    [SerializeField] private Transform[] _enemyPrefabs;
 
     private WaitForSeconds _waitForSeconds;
 

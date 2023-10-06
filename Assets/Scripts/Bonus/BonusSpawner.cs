@@ -6,23 +6,51 @@ public class BonusSpawner : MonoBehaviour
     [SerializeField] private float _minXPosition;
     [SerializeField] private float _maxXPosition;
     [SerializeField] private float _delay;
-    [SerializeField] private Bonus _template;
+    
+    private Bonus[] _bonuses;
 
     private WaitForSeconds _waitForSeconds;
 
     private void Start()
     {
         _waitForSeconds = new WaitForSeconds(_delay);
-        StartCoroutine(Spawn());
+
+        Initialize();
+
+        StartCoroutine(TrySpawn());
     }
 
-    private IEnumerator Spawn()
+    private void Initialize()
+    {
+        _bonuses = GetComponentsInChildren<Bonus>();
+
+        foreach (Bonus bonus in _bonuses)
+        {
+            bonus.gameObject.SetActive(false);
+        }
+    }
+
+    private IEnumerator TrySpawn()
     {
         while (true)
         {
-            Vector2 spawnPosition = new Vector2(Random.Range(_minXPosition, _maxXPosition), transform.position.y);
-            Bonus bonus = Instantiate(_template, spawnPosition, Quaternion.identity, transform);
-            yield return _waitForSeconds;
+            GameObject bonus = _bonuses[Random.Range(0, _bonuses.Length)].gameObject;
+
+            if(bonus != null && bonus.activeSelf == false)
+            {
+                Activate(bonus);
+
+                yield return _waitForSeconds;
+            }
+
+            yield return null;
         }
+    }
+
+    private void Activate(GameObject bonus)
+    {
+        Vector2 spawnPosition = new Vector2(Random.Range(_minXPosition, _maxXPosition), transform.position.y);
+        bonus.transform.position = spawnPosition;
+        bonus.SetActive(true);
     }
 }

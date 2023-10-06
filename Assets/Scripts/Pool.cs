@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Pool : MonoBehaviour
 {
-    [SerializeField] private List<Transform> _pool = new List<Transform>();
     [SerializeField] private int _capacity;
     [SerializeField] private Transform _container;
+    [SerializeField] private List<Transform> _pool = new List<Transform>();
 
     protected void Initialize(Transform[] prefabs) 
     {

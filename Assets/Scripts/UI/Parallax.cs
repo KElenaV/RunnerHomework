@@ -21,6 +21,7 @@ public class Parallax : MonoBehaviour
         if (_imagePositionX > 1)
             _imagePositionX = 0;
 
-        _image.uvRect = new Rect(_imagePositionX, _image.uvRect.width, _image.uvRect.width, _image.uvRect.height);
+        var rect = _image.uvRect;
+        _image.uvRect = new Rect(_imagePositionX, rect.width, rect.width, rect.height);
     }
 }
